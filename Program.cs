@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<AzureTestContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("AzureTestContext") 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AzureTestContext AZURE_SQL_CONNECTIONSTRING") 
     ?? throw new InvalidOperationException("Connection string 'AzureTestContext' not found.")));
 
 var app = builder.Build();
