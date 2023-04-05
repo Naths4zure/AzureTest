@@ -13,19 +13,20 @@ builder.Services.AddDbContext<AzureTestContext>(options =>
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
+// Add Movies
+using (var scope = app.Services.CreateScope())      // Create the Scope
 {
-    var services = scope.ServiceProvider;
-    SeedData.Initialize(services);
+    var services = scope.ServiceProvider;           // Create the ServiceProvider
+    SeedData.Initialize(services);                  // Run SeedData.Initialize() to populate the database with movies
 }
 
-    // Configure the HTTP request pipeline.
-    if (!app.Environment.IsDevelopment())
-    {
-        app.UseExceptionHandler("/Error");
-        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-        app.UseHsts();
-    }
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
