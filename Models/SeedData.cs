@@ -15,7 +15,7 @@ namespace AzureTest.Models
                     throw new ArgumentNullException("Null AzureTestContext");                   //  throw an exception 
                 }
 
-                if(context.Movie.Any())                                                         // If the database contains movies
+                if (context.Movie.Any())                                                         // If the database contains movies
                 {
                     return;                                                                     //  exit seeding data     
                 }
